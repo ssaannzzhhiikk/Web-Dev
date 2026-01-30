@@ -1,0 +1,166 @@
+*{
+    font-family: Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0
+}
+
+
+.main-content {
+    display: flex;
+    gap: 50px;
+    max-height: 700px;
+    border-bottom:1px solid gray;
+}
+
+
+.right{
+    padding: 50px;
+}
+
+.logo{
+    height: 80px;
+    width: 80px;
+}
+
+.stories{
+    width: 500px;
+}
+
+.right-text{
+    padding: 20px;
+    margin-left: 50px;
+    font-size: 43px;
+    font-weight: 500;
+    text-align: center;
+    
+}
+
+.rainbow-text{
+    background: radial-gradient(circle at 30% 107%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background-clip: text;
+    color: transparent; 
+
+}
+
+.right-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.meta-logo{
+    width: 70px;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 3px solid gray;
+    font-size: 17px;
+    font-weight: bold;
+    width:800px;
+    max-width: 90%;
+}
+
+.buttons-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.login-text{
+    padding-left: 53px;
+    margin-bottom: 20px;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 540px;
+    height: 45px;
+    border-radius: 30px;
+    margin-bottom: 15px;
+    padding-left: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: white;
+}
+
+#login{
+    background-color: #1877ff;
+}
+
+#email{
+    height: 60px;
+    border-radius: 15px;
+}
+
+#password{
+    height: 60px;
+    border-radius: 15px;
+}
+
+#create-new{
+    border-color: #1877F2;
+    color: #1877F2;
+}
+
+#forgotten{
+    text-decoration: none;
+    color: black;
+    margin-bottom: 50px;
+}
+
+
+.footer {
+    padding: 15px;
+    font-size: 12px;
+    color: #8e8e8e;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.footer-links a {
+    color: #8e8e8e;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    align-items: center;
+}
+
+.language {
+    border: none;
+    background: transparent;
+    color: #8e8e8e;
+    cursor: pointer;
+}
+
+
+@media (max-width: 900px) {
+    .right {
+        display: none;
+    }
+    .left{
+        border: none;
+    } 
+}
