@@ -102,7 +102,7 @@ body {
     flex-direction: column;
     align-items: center;
     border: 1px solid #d0d7de;
-    padding: 24px 16px;
+    padding-top: 24px;
     border-radius: 10px;
     background-color: white;
 }
@@ -177,12 +177,10 @@ body {
     font-weight: 600;
     cursor: pointer;
     margin-bottom: 24px;
-    transition: all 0.2s ease;
 }
 
 .button-free:hover {
-    background-color: #f6f8fa;
-    border-color: #1f2328;
+    border: 2px solid #1f2328;
 }
 
 .button-team{
@@ -246,7 +244,6 @@ body {
 
 .features-list {
     width: 100%;
-    margin-bottom: 24px;
 }
 
 .feature-item {
@@ -260,10 +257,6 @@ body {
     color: #0d1117;
     font-weight: bold;
     color: #59636e;
-}
-
-.feature-item:last-child {
-    border-bottom: none;
 }
 
 .chevron {
@@ -294,11 +287,13 @@ body {
 
 .featured-addons {
     width: 100%;
-    padding: 0 16px;
+    background-color: #f6f8fa;;
 }
 
 .addon-header {
-    font-size: 11px;
+    padding-top: 15px;
+    padding-left: 10px;
+    font-size: 14px;
     font-weight: 700;
     color: #0969da;
     letter-spacing: 0.5px;
