@@ -120,9 +120,9 @@ let message = (login == 'Employee') ? 'Hello' :
   (login == '') ? 'No login' :
   '';
 
-  //Logical operators
+//Logical operators
 
-  alert( true || true );   // true
+alert( true || true );   // true
 alert( false || true );  // true
 alert( true || false );  // true
 alert( false || false ); // false
@@ -133,7 +133,6 @@ alert( null || 2 || undefined ); // 2
 alert( alert(1) || 2 || alert(3) );//answer is the 3
 
 alert(1 && null && 2);// null
-
 
 
 
@@ -228,7 +227,7 @@ if(browser == 'Edge') {
   }
 
 
-  let al = +prompt('a?', '');
+let al = + prompt('a?', '');
 
 switch (al) {
   case 0:
