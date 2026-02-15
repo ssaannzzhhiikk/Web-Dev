@@ -1,0 +1,1 @@
+The task: [link](https://docs.google.com/document/d/1lwS-ze5DKxp8kargWrpBlCrnLItwTno8akt4OlVQuCE/edit?tab=t.0)
