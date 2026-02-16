@@ -54,6 +54,11 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "liveReload": true,
+            "watch": true,
+            "hmr": true
+          },
           "configurations": {
             "production": {
               "buildTarget": "kaspi-app:build:production"
