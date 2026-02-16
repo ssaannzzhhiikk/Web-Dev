@@ -1,0 +1,7 @@
+<div class="max-w-4xl mx-auto flex flex-wrap mt-10">
+  @for (product of products; track product.id) {
+
+    <prod-card [product]="product" />
+
+  }
+</div>
