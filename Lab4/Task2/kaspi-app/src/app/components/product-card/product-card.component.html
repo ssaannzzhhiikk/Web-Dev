@@ -1,0 +1,71 @@
+<a [href]="product().link" target="_blank" class="block hover:shadow-lg transition-shadow">
+  <div class="w-52.5 border border-gray-200 bg-white">
+
+    <div class="relative w-51.25 h-37.5 flex items-center justify-center bg-white">
+
+      <span class="absolute top-2 left-2 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
+        0 • 0 • 12
+      </span>
+
+      <img [src]="product().image" alt="product" class="max-w-35 max-h-35 object-contain">  
+    </div>
+
+    <div class="p-3">
+
+      <div class="text-[#0089d0] text-sm leading-tight hover:underline cursor-pointer">
+        {{product().description}}
+      </div>
+
+      <div class="flex items-center mt-1 text-xs">
+          <div class="text-yellow-400">
+            @for (star of [1,2,3,4,5]; track star) {
+              <span>{{ star <= product().rating ? '★' : '☆' }}</span>
+            }
+          </div>
+        <span class="text-[#0089d0] ml-1">(15932 отзыва)</span>
+      </div>
+
+      <div class="flex gap-4 mt-2 text-sm text-gray-500">
+        <span>Цена</span>
+        <span>В рассрочку</span>
+      </div>
+
+      <div class="flex items-center justify-between mt-1">
+
+        <div class="flex items-center gap-4">
+          <span class="text-black font-semibold text-lg">
+            {{product().price}} ₸
+          </span>
+
+          <div class="flex items-center gap-1">
+            <span class="bg-yellow-300 px-1 font-semibold text-sm">
+              {{Math.ceil(product().price / 3)}}
+            </span>
+            <span class="text-gray-500 text-sm">
+              x3
+            </span>
+          </div>
+        </div>
+
+        <div class="flex gap-2">
+          <button 
+            (click)="shareWhatsApp($event)"
+            class="hover:opacity-70 transition-opacity"
+            title="Share on WhatsApp">
+            <img src="whatsapp-icon.png" alt="WhatsApp" class="w-6 h-6">
+          </button>
+
+          <button 
+            (click)="shareTelegram($event)"
+            class="hover:opacity-70 transition-opacity"
+            title="Share on Telegram">
+            <img src="telegram_logo.png" alt="Telegram" class="w-6 h-6">
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</a>
