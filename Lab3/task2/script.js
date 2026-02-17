@@ -10,41 +10,49 @@ taskInput.addEventListener("keypress", function(e) {
   }
 });
 
-function addTask() {
-  const text = taskInput.value.trim();
+let setList = new Set();
 
+function addTask() {
+
+  const text = taskInput.value.trim();
   if (text === "") return;
 
-  const li = document.createElement("li");
+  if(setList.has(text)){
+    return;
+  } else{
+    setList.add(text);
+    const li = document.createElement("li");
 
-  const leftDiv = document.createElement("div");
-  leftDiv.className = "left";
+    const leftDiv = document.createElement("div");
+    leftDiv.className = "left";
 
-  const checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
 
-  const span = document.createElement("span");
-  span.textContent = text;
+    const span = document.createElement("span");
+    span.textContent = text;
 
-  const deleteBtn = document.createElement("span");
-  deleteBtn.className = "delete";
-  deleteBtn.innerHTML = "🗑";
+    const deleteBtn = document.createElement("span");
+    deleteBtn.className = "delete";
+    deleteBtn.innerHTML = "🗑";
 
-  checkbox.addEventListener("change", function() {
-    span.classList.toggle("done");
-  });
+    checkbox.addEventListener("change", function() {
+      span.classList.toggle("done");
+    });
 
-  deleteBtn.addEventListener("click", function() {
-    taskList.removeChild(li);
-  });
+    deleteBtn.addEventListener("click", function() {
+      taskList.removeChild(li);
+    });
 
-  leftDiv.appendChild(checkbox);
-  leftDiv.appendChild(span);
+    leftDiv.appendChild(checkbox);
+    leftDiv.appendChild(span);
 
-  li.appendChild(leftDiv);
-  li.appendChild(deleteBtn);
+    li.appendChild(leftDiv);
+    li.appendChild(deleteBtn);
 
-  taskList.appendChild(li);
+    taskList.appendChild(li);
 
-  taskInput.value = "";
+    taskInput.value = "";
+  }
+  console.log(setList);
 }
