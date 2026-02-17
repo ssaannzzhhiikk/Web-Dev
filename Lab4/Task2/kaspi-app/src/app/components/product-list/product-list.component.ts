@@ -10,6 +10,12 @@ import { productCard } from "../product-card/product-card.component";
     styleUrl: './product-list.component.css'
 })
 export class productList{
+   constructor() {
+   this.products.sort((a, b) =>
+      a.name.localeCompare(b.name)
+   );
+   }
+
     products: productModel[] = [
     {
     id: 1,
