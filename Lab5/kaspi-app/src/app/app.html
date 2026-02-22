@@ -35,34 +35,16 @@
 
 <nav class="border-b border-gray-300">
   <div class="max-w-5xl mx-auto px-4 flex text-sm font-medium text-center items-center">
-    <a class="px-4 py-2 text-[#0089d0] border-r border-l border-gray-300 hover:bg-gray-200">
-      ВСЕ КАТЕГОРИИ
-    </a>
-    <a class="px-4 py-2 text-[#0089d0] border-r border-gray-300 hover:bg-gray-200">
-      ТЕЛЕФОНЫ И ГАДЖЕТЫ
-    </a>
-    <a class="px-4 py-2 text-[#0089d0] border-r border-gray-300 hover:bg-gray-200">
-      БЫТОВАЯ ТЕХНИКА
-    </a>
-    <a class="px-4 py-2 text-[#0089d0] border-r border-gray-300 hover:bg-gray-200">
-      ТВ, АУДИО, ВИДЕО
-    </a>
-    <a class="px-4 py-2 text-[#0089d0] border-r border-gray-300 hover:bg-gray-200">
-      КОМПЬЮТЕРЫ
-    </a>
-    <a class="px-4 py-2 text-[#0089d0] border-r border-gray-300 hover:bg-gray-200">
-      МЕБЕЛЬ
-    </a>
-    <a class="px-4 py-2 text-[#0089d0] border-r border-gray-300 hover:bg-gray-200">
-      КРАСОТА, ЗДОРОВЬЕ
-    </a>
-    <a class="px-4 py-2 text-[#0089d0] border-r border-gray-300 hover:bg-gray-200">
-      ДЕТСКИЕ ТОВАРЫ
-    </a>
-    <a class="px-4 py-2 text-[#0089d0] border-r border-gray-300 hover:bg-gray-200">
-      АПТЕКА
-    </a>
+    @for (category of categories; track category.id) {
+      <button
+        (click)="selectCategory(category.id)"
+        [class]="isSelected(category.id)
+          ? 'px-4 py-2 border-r border-gray-300 bg-gray-200 text-[#0089d0]'
+          : 'px-4 py-2 border-r border-gray-300 text-[#0089d0] hover:bg-gray-200'">
+        {{ category.name | uppercase }}
+      </button>
+    }
   </div>
 </nav>
 
-<prod-list></prod-list>
+<prod-list [products]="filteredProducts" />
