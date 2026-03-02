@@ -1,8 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { AlbumService } from '../../services/album.services'; 
+import { AlbumService } from '../../services/album.service';
 import { Album } from '../../models/album.model';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-albums',
@@ -13,6 +14,7 @@ import { Album } from '../../models/album.model';
 export class AlbumsComponent implements OnInit {
   private albumService = inject(AlbumService);
   private router = inject(Router);
+  private cdr = inject(ChangeDetectorRef);
 
   albums: Album[] = [];
   loading = true;
@@ -21,7 +23,9 @@ export class AlbumsComponent implements OnInit {
     this.albumService.getAlbums().subscribe({
       next: (data) => {
         this.albums = data;
+        console.log(data);
         this.loading = false;
+        this.cdr.detectChanges();
       },
       error: () => {
         this.loading = false;

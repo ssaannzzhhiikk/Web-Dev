@@ -1,34 +1,23 @@
 <div class="min-h-screen bg-gray-50 flex flex-col">
   <nav class="bg-white border-b border-gray-200 shadow-sm">
     <div class="max-w-5xl mx-auto px-6 py-4 flex items-center gap-8">
-      <span class="text-xl font-bold text-gray-800 tracking-tight">
-        Album Browser
-      </span>
-
+      <span class="text-xl font-bold text-gray-800 tracking-tight">Album Browser</span>
       <div class="flex gap-6">
-        <a
-          routerLink="/home"
-          routerLinkActive="nav-active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          class="text-gray-600 hover:text-indigo-600 pb-1 transition-colors text-sm"
-        >
+        <a routerLink="/home"
+           routerLinkActive="nav-active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           class="text-gray-600 hover:text-indigo-600 pb-1 transition-colors text-sm">
           Home
         </a>
-
-        <a
-          routerLink="/about"
-          routerLinkActive="nav-active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          class="text-gray-600 hover:text-indigo-600 pb-1 transition-colors text-sm"
-        >
+        <a routerLink="/about"
+           routerLinkActive="nav-active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           class="text-gray-600 hover:text-indigo-600 pb-1 transition-colors text-sm">
           About
         </a>
-
-        <a
-          routerLink="/albums"
-          routerLinkActive="nav-active"
-          class="text-gray-600 hover:text-indigo-600 pb-1 transition-colors text-sm"
-        >
+        <a routerLink="/albums"
+           routerLinkActive="nav-active"
+           class="text-gray-600 hover:text-indigo-600 pb-1 transition-colors text-sm">
           Albums
         </a>
       </div>

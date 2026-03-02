@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { AlbumService } from '../../services/album.services';
+import { AlbumService } from '../../services/album.service';
 import { Photo } from '../../models/photo.model';
 
 @Component({
