@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AlbumService } from '../../services/album.service';
 import { Album } from '../../models/album.model';
+import { ChangeDetectorRef } from '@angular/core';
+
 
 @Component({
   selector: 'app-album-detail',
@@ -15,6 +17,8 @@ export class AlbumDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private albumService = inject(AlbumService);
+  private cdr = inject(ChangeDetectorRef);
+
 
   album: Album | null = null;
   editTitle = '';
@@ -28,7 +32,9 @@ export class AlbumDetailComponent implements OnInit {
       next: (data) => {
         this.album = data;
         this.editTitle = data.title;
+        console.log(data)
         this.loading = false;
+        this.cdr.detectChanges();
       },
       error: () => {
         this.loading = false;
