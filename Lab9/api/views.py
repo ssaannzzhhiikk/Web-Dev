@@ -10,7 +10,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
-    # Custom action: GET /api/categories/<id>/products/
+    # custom action: GET /api/categories/<id>/products/
     @action(detail=True, methods=['get'])
     def products(self, request, pk=None):
         category = self.get_object()
@@ -18,7 +18,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data)
 
-
+# our crud
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
