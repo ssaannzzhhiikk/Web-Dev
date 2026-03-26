@@ -1,0 +1,83 @@
+{
+  "info": {
+    "name": "Online Shop API",
+    "_postman_id": "online-shop-api-collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "Get All Categories",
+          "request": { "method": "GET", "url": { "raw": "http://127.0.0.1:8000/api/categories/", "host": ["127.0.0.1"], "port": "8000", "path": ["api", "categories", ""] } }
+        },
+        {
+          "name": "Get Category by ID",
+          "request": { "method": "GET", "url": { "raw": "http://127.0.0.1:8000/api/categories/1/", "host": ["127.0.0.1"], "port": "8000", "path": ["api", "categories", "1", ""] } }
+        },
+        {
+          "name": "Get Products by Category",
+          "request": { "method": "GET", "url": { "raw": "http://127.0.0.1:8000/api/categories/1/products/", "host": ["127.0.0.1"], "port": "8000", "path": ["api", "categories", "1", "products", ""] } }
+        },
+        {
+          "name": "Create Category",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Books\"\n}", "options": { "raw": { "language": "json" } } },
+            "url": { "raw": "http://127.0.0.1:8000/api/categories/", "host": ["127.0.0.1"], "port": "8000", "path": ["api", "categories", ""] }
+          }
+        },
+        {
+          "name": "Update Category",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Electronics Updated\"\n}", "options": { "raw": { "language": "json" } } },
+            "url": { "raw": "http://127.0.0.1:8000/api/categories/1/", "host": ["127.0.0.1"], "port": "8000", "path": ["api", "categories", "1", ""] }
+          }
+        },
+        {
+          "name": "Delete Category",
+          "request": { "method": "DELETE", "url": { "raw": "http://127.0.0.1:8000/api/categories/1/", "host": ["127.0.0.1"], "port": "8000", "path": ["api", "categories", "1", ""] } }
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Get All Products",
+          "request": { "method": "GET", "url": { "raw": "http://127.0.0.1:8000/api/products/", "host": ["127.0.0.1"], "port": "8000", "path": ["api", "products", ""] } }
+        },
+        {
+          "name": "Get Product by ID",
+          "request": { "method": "GET", "url": { "raw": "http://127.0.0.1:8000/api/products/1/", "host": ["127.0.0.1"], "port": "8000", "path": ["api", "products", "1", ""] } }
+        },
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"New Product\",\n  \"price\": 59.99,\n  \"description\": \"A new product description\",\n  \"count\": 15,\n  \"is_active\": true,\n  \"category\": 1\n}", "options": { "raw": { "language": "json" } } },
+            "url": { "raw": "http://127.0.0.1:8000/api/products/", "host": ["127.0.0.1"], "port": "8000", "path": ["api", "products", ""] }
+          }
+        },
+        {
+          "name": "Update Product",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Updated Laptop\",\n  \"price\": 1099.99,\n  \"description\": \"Updated description\",\n  \"count\": 8,\n  \"is_active\": true,\n  \"category\": 1\n}", "options": { "raw": { "language": "json" } } },
+            "url": { "raw": "http://127.0.0.1:8000/api/products/1/", "host": ["127.0.0.1"], "port": "8000", "path": ["api", "products", "1", ""] }
+          }
+        },
+        {
+          "name": "Delete Product",
+          "request": { "method": "DELETE", "url": { "raw": "http://127.0.0.1:8000/api/products/1/", "host": ["127.0.0.1"], "port": "8000", "path": ["api", "products", "1", ""] } }
+        }
+      ]
+    }
+  ]
+}
