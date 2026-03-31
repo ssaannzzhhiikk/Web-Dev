@@ -10,34 +10,11 @@ class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
+    # custom action: GET /api/categories/<id>/products/
     @action(detail=True, methods=['get'])
     def products(self, request, pk=None):
         category = self.get_object()
         products = Product.objects.filter(category=category)
-
-        # Same query params as above
-        min_price = request.query_params.get('min')
-        max_price = request.query_params.get('max')
-        sort = request.query_params.get('sort')
-        limit = request.query_params.get('limit')
-        offset = request.query_params.get('offset')
-
-        if min_price:
-            products = products.filter(price__gte=float(min_price))
-        if max_price:
-            products = products.filter(price__lte=float(max_price))
-        if sort in ['price', '-price', 'name', '-name']:
-            products = products.order_by(sort)
-        if offset:
-            offset = int(offset)
-        else:
-            offset = 0
-        if limit:
-            limit = int(limit)
-            products = products[offset:offset+limit]
-        else:
-            products = products[offset:]
-
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data)
 
