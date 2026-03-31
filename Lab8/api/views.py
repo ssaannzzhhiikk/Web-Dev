@@ -23,7 +23,7 @@ def category_to_dict(c):
 
 # GET /api/products/
 def product_list(request):
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('price')
     data = [product_to_dict(p) for p in products]
     return JsonResponse(data, safe=False)
 
@@ -62,3 +62,38 @@ def category_products(request, id):
         return JsonResponse(data, safe=False)
     except Category.DoesNotExist:
         return JsonResponse({"error": "Category not found"}, status=404)
+    
+
+from django.db.models import Min, Max
+
+def product_stats(request):
+    stats = Product.objects.aggregate(
+        min_price=Min('price'),
+        max_price=Max('price')
+    )
+    return JsonResponse(stats)
+
+
+def product_list(request):
+    products = Product.objects.order_by('-price')
+
+    # query params
+    min_price = request.GET.get('min')
+    max_price = request.GET.get('max')
+    sort = request.GET.get('sort')
+
+    if min_price:
+        products = products.filter(price__gte=min_price)
+
+    if max_price:
+        products = products.filter(price__lte=max_price)
+
+    allowed_sorts = ['price', '-price', 'name', '-name']
+    if sort in allowed_sorts:
+        products = products.order_by(sort)
+
+    data = [product_to_dict(p) for p in products]
+    return JsonResponse(data, safe=False)
+
+Product.objects.order_by('price').first()
+Product.objects.order_by('-price').first()
