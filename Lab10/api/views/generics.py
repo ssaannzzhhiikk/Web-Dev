@@ -6,11 +6,14 @@ from api.models import Category, Product
 from api.serializers import CategorySerializer, ProductSerializer
 
 
-# --- Product Views ---
-
 class ProductListAPIView(generics.ListCreateAPIView):
-    queryset = Product.objects.all()
     serializer_class = ProductSerializer
+
+    def get_queryset(self):
+        products = Product.objects.order_by("id")
+        if self.request.user.is_authenticated:
+            return products
+        return products[:5]
 
 
 class ProductDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
@@ -32,7 +35,6 @@ class CategoryDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     lookup_url_kwarg = 'category_id'
 
 
-# --- Custom Category Products View ---
 
 class CategoryProductsAPIView(APIView):
     def get(self, request, category_id):
